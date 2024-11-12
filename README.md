@@ -1,5 +1,7 @@
 Create a new django project and create the 3 html files inside it for home page, login and signup.
 
+## day1
+
 intergrated with the OpenCV
 
 note: we need use the image file as filename only not the link
@@ -51,6 +53,9 @@ Predefined functions available:
    -> used to close all the output windows
    syntax:
    cv2.destoryAllWindows()
+
+## day2
+
 5. How to get multiple image loaded to multiple output screen
 
 import cv2
@@ -97,6 +102,8 @@ cv2.waitKey(0)
 
 cv2.destroyAllWindows()
 
+##day3
+
 7 how to save an image using opencv
 -> cv2.imwrite()
 -> used to store the converted image or the output for future purpose 7. How to save an image using opencv
@@ -122,6 +129,8 @@ cv2.waitKey(0)
 
 cv2.destroyAllWindows()
 
+##day 4
+
 8.  How to resize the images which we read.
     -> most of the time, we will not get the perfect size of the image, sometimes it will be large or too small. So, we need to
     re-size the image to common size.
@@ -130,28 +139,32 @@ cv2.destroyAllWindows()
     syntax:
     cv2.resize(source,dsize,destination,fx,fy,interpolation)
 
-        source -> image which we have read
-        dsize -> size of the output iamge
-        destination -> the output image to be saved once again (work like imwrite())
-                    -> optional
-        fx - scale factor on horizontal axis
-        fy - scale factor on vertical axis
-        interpolation - automated sizing
-            -> INTER_AREA
-                -> when we are going to use a image as shrinked one
-            -> INTER_CUBIC
-                -> slowest resizing option
-            -> INTER_LINEAR
-                -> when we are going to use a image as zoomed one
-            -> optional
+            source -> image which we have read
+            dsize -> size of the output image
+            destination -> the output image to be saved once again (work like imwrite())
+                        -> optional
+            fx - scale factor on horizontal axis
+            fy - scale factor on vertical axis
+            interpolation - automated sizing
+                -> INTER_AREA
+                    -> when we are going to use a image as shrinked one
+                -> INTER_CUBIC
+                    -> slowest resizing option
+                -> INTER_LINEAR
+                    -> when we are going to use a image as zoomed one
+                -> optional
 
-        1. half image condition
-            -> dsize = (0,0)
-            -> fx > 0
-            -> fy > 0
+            1. half image condition
+                -> dsize = (0,0)
+                -> fx > 0
+                -> fy > 0
 
-    import cv2
-    import matplotlib.pyplot as plt
+    fy fx value not to cross the 1 as it needs to cross the original image
+
+##day 5
+
+import cv2
+import matplotlib.pyplot as plt
 
 img = cv2.imread('blood cell.jpg')
 cv2.imshow('Normal Output',img)
@@ -167,6 +180,8 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 ---
+
+##day 6
 
 import cv2
 
@@ -233,16 +248,28 @@ cv2.destroyAllWindows()
     min = 100 -> with few inner circles are possible
 
 ++++
+
+##day7
+
 For converting from color to grayscale
 -> cvtColor()
 -> used to convert the given image into any color for image as you wish
 -> grayscale = cv2.COLOR_BGR3GRAY
+
 For blurring the images
 -> GaussianBlur()
 syntax:
-cv2.GaussianBlur(image,(sigmaX,sigmaY),kernal_size)
+cv2.GaussianBlur(image,kernal_size,(sigmaX,sigmaY))
+
 For the theshold image
 -> threshold()
+->THRESH_BINARY ->for more effective
+basically binary means 0 and 1
+0 for black
+1 for white
+after grayscaled we are using this so that we can get great classification
+this will convert the black to white and vice-versa
+
 for the contour image
 -> whether we have curved edges in our given image
 -> findContour()
@@ -252,6 +279,7 @@ RETR_LINK -> including all outer and inner curves
 RETR_EXTERNAL -> include only the outer curves
 RETR_TREE -> grandparents,parents,child
 RETR_CCOMP ->
+
 '''
 import cv2
 
