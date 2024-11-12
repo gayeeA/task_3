@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: url("https://lh7-us.googleusercontent.com/liD0B-xzZOuSaUtaYbD7OG6yngdil7TQhKEiU2xlhpaYyP15Aofk0sCut4nxtKcSF_dHbQfJVMKvS3UDV0qqRSkw_J91X74Irf8lmB0EWdSX8LIFHanjWAjWIVtdaN_B1AysR2WpuXquUAfiNdBge08")
+          no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+      }
+
+      section {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        color: blue;
+        font-size: 50px;
+        font-weight: bold;
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+        margin: 20px 0;
+        text-align: center;
+      }
+
+      form {
+        background: transparent;
+        padding: 0;
+      }
+
+      label {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      input[type="file"] {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        background-color: #f1f1f1;
+        font-size: 16px;
+      }
+
+      button[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+
+      p {
+        margin: 15px 0;
+      }
+
+      input[type="file"]::-webkit-file-upload-button {
+        background-color: #f16b6b;
+        border: none;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      input[type="file"]::-webkit-file-upload-button:hover {
+        background-color: #d9534f;
+      }
+
+      .uploaded-image {
+        max-width: 300px;
+        max-height: 300px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Blood Group Identification Web App!!!</h1>
+    <section>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+          <label for="image1">ABD Test Cell Image:</label><br />
+          <input type="file" name="abd" id="image1" accept="image/*" />
+        </p>
+        <p>
+          <button type="submit">Check for Blood Group</button>
+        </p>
+      </form>
+
+      <hr />
+
+      <div>
+        {% if img %}
+        <img src="{{ img }}" alt="No Image" height="300px" width="300px" />
+        {% endif %}
+      </div>
+    </section>
+  </body>
+</html>
