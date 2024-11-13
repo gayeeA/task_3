@@ -125,6 +125,11 @@
         <img src="{{ img }}" alt="No Image" height="300px" width="300px" />
         {% endif %}
       </div>
+
+      {% if blood_group %}
+      <h2>Detected Blood Group: {{ blood_group }}</h2>
+      <h3>Contour Length: {{ contour_length }}</h3>
+      {% endif %}
     </section>
   </body>
 </html>
